@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package com.angadi.price.api.grpc;
+
+message PriceRequest {
+    string vendorID = 1;
+    string imageId = 2;
+    float price = 3;
+}
+
+message PriceResponse {
+    string status = 1;
+    
+}
+
+message PriceUpdateRequest {
+    string vendorID = 1;
+    string imageId = 2;
+    float price = 3;
+}
+
+message PriceDeleteRequest {
+    string vendorID = 1;
+    string imageId = 2;
+    float price = 3;
+}
+
+
+service PriceService {
+    rpc createPrice(PriceRequest) returns (PriceResponse);
+    rpc updatePrice(PriceUpdateRequest) returns (PriceResponse);
+    rpc deletePrice(PriceDeleteRequest) returns (PriceResponse);
+}

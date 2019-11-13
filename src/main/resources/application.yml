@@ -1,0 +1,31 @@
+server:
+  port: 8081
+ # servlet: #   context-path: /cdp-er
+  error:    whitelabel:      enabled: false
+      
+
+  
+management:  server:    port: 8099  endpoints:
+    web:
+      base-path: / 
+      path-mapping:
+           health: health
+        
+spring:
+  application:
+    name: imageservice     
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+      max-request-size: 2MB
+ 
+logging:
+    level:
+      root: info     
+      com.angadi.vendor:  INFO
+    pattern:
+    # console: "%d{yyyy-MM-dd HH:mm:ss} %-5level  - %msg%n"
+     file:    "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"   
+    file: /logs/imageservice.log
+  
